@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Profiler } from 'react';
 import './App.css';
-import ListUsersAndMovies from './ListUsersAndMovies';
 import logo from './logo.svg';
 
 
@@ -101,14 +100,6 @@ const movies = {
 
 
 
-/*let listUsers = profiles.map( profile => {
-  let obj = {
-      userName: users[profile.userID].name,
-      favMovieName: movies[profile.favoriteMovieID].name,
-	}
-  return obj;
-})*/
-
 
 
 
@@ -120,19 +111,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-        <h2>Favorite Movies</h2>
-		<ol>
-
-		{profiles.map(profile => {
-          return(
-            <li key={profile.id}>
-            	<ListUsersAndMovies name={users[profile.userID].name} movie={movies[profile.favoriteMovieID].name} />
-            </li>
-          )
-         })
-        }
-
-		 </ol>
+        <h2>Favorite Movies 2021</h2>
+        <ol>
+          {profiles.map((profile) => {
+            return (<li key={profile.id}>
+              {users[profile.userID].name}'s favorite movie is {movies[profile.favoriteMovieID].name}
+              </li>);
+          })}
+        </ol>
      </div>
     )//return
 
